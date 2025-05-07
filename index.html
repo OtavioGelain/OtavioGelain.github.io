@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EDUCA-STORE | Materiais Escolares</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="top-bar">
+        <div class="container">
+          <div class="logo-small">
+            <img src="https://via.placeholder.com/32" alt="Logo" />
+            <span class="hide-mobile"
+              >Envio grátis para compras acima de R$200,00</span
+            >
+          </div>
+          <div class="welcome">
+            <a href="#">Seja bem-vindo(a)!</a>
+          </div>
+          <div class="user-actions">
+            <a href="#" class="account">
+              <i class="fas fa-user"></i>
+              <span class="hide-mobile">Minha conta</span>
+            </a>
+            <a href="#" class="cart">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="hide-mobile">Carrinho (0)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="search-bar">
+        <div class="container">
+          <a href="#" class="logo">EDUCA-STORE</a>
+          <div class="search-container">
+            <input type="search" placeholder="O que você está procurando?" />
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+      </div>
+
+      <nav class="main-nav">
+        <div class="container">
+          <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+          <label for="menu-toggle" class="menu-icon">
+            <i class="fas fa-bars"></i>
+          </label>
+          <ul class="nav-links">
+            <li><a href="#">CATEGORIAS</a></li>
+            <li><a href="#">PROMOÇÕES</a></li>
+            <li><a href="#">NOVIDADES</a></li>
+            <li><a href="#">CONTATO</a></li>
+            <li><a href="#">INSTITUCIONAL</a></li>
+            <li><a href="#">BLOG</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-banner">
+        <div class="container">
+          <div class="hero-content">
+            <h1>EDUCA-<span>STORE</span></h1>
+            <p>MATERIAIS PARA VOLTA ÀS AULA ATÉ 10% DE DESCONTO</p>
+          </div>
+        </div>
+        <div class="hero-decoration">
+          <div class="dots-pattern"></div>
+          <div class="decoration-top-right"></div>
+          <div class="decoration-bottom-left"></div>
+        </div>
+      </section>
+
+    <footer>
+      <div class="footer-content">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-column">
+              <h3>Institucional</h3>
+              <ul>
+                <li><a href="#">Quem Somos</a></li>
+                <li><a href="#">Política de Privacidade</a></li>
+                <li><a href="#">Termos de Uso</a></li>
+                <li><a href="#">Trabalhe Conosco</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h3>Atendimento</h3>
+              <ul>
+                <li><a href="#">Central de Ajuda</a></li>
+                <li><a href="#">Fale Conosco</a></li>
+                <li><a href="#">Trocas e Devoluções</a></li>
+                <li><a href="#">Perguntas Frequentes</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h3>Minha Conta</h3>
+              <ul>
+                <li><a href="#">Meus Pedidos</a></li>
+                <li><a href="#">Meus Dados</a></li>
+                <li><a href="#">Lista de Desejos</a></li>
+                <li><a href="#">Carrinho</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h3 class="social-title">Redes Sociais</h3>
+              <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div class="copyright">
+        <div class="container">
+          © 2025 EDUCA-STORE - Todos os direitos reservados. CNPJ:
+          00.000.000/0001-00
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('change', function () {
+          if (this.checked) {
+            navLinks.style.display = 'flex';
+          } else {
+            navLinks.style.display = 'none';
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

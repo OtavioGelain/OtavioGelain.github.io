@@ -2,6 +2,7 @@ class HeaderComponent extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
+    this.cartCount = 0;
     this.render();
   }
 
@@ -27,9 +28,9 @@ class HeaderComponent extends HTMLElement {
                 <i class="fas fa-user"></i>
                 <span class="hide-mobile">Minha conta</span>
               </a>
-              <a href="#" class="cart">
+              <a href="#" class="cart" id="cart-toggle">
                 <i class="fas fa-shopping-cart"></i>
-                <span class="hide-mobile">Carrinho (0)</span>
+                <span class="hide-mobile">Carrinho (<span class="cart-count">${this.cartCount}</span>)</span>
               </a>
             </div>
           </div>
@@ -64,8 +65,11 @@ class HeaderComponent extends HTMLElement {
       </header>
     `;
 
-    // Add event listener for mobile menu toggle
     this.setupMobileMenu();
+
+    this.setupCartToggle();
+
+    this.setupCartCountListener();
   }
 
   setupMobileMenu() {
@@ -81,6 +85,28 @@ class HeaderComponent extends HTMLElement {
         }
       });
     }
+  }
+
+  setupCartToggle() {
+    const cartToggle = this.shadowRoot.getElementById('cart-toggle');
+    if (cartToggle) {
+      cartToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.dispatchEvent(new CustomEvent('toggle-cart'));
+      });
+    }
+  }
+
+  setupCartCountListener() {
+    document.addEventListener('update-cart-count', (event) => {
+      if (event.detail && typeof event.detail.count === 'number') {
+        this.cartCount = event.detail.count;
+        const cartCountElement = this.shadowRoot.querySelector('.cart-count');
+        if (cartCountElement) {
+          cartCountElement.textContent = this.cartCount;
+        }
+      }
+    });
   }
 }
 

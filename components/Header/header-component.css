@@ -57,6 +57,33 @@ img {
   display: flex;
   align-items: center;
   gap: 5px;
+  position: relative;
+}
+
+.cart-count-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #fff;
+  color: #ff7826;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .cart-count-badge {
+    position: static;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    margin: 0 2px;
+  }
 }
 
 .search-bar {

@@ -30,7 +30,8 @@ class HeaderComponent extends HTMLElement {
               </a>
               <a href="#" class="cart" id="cart-toggle">
                 <i class="fas fa-shopping-cart"></i>
-                <span class="hide-mobile">Carrinho (<span class="cart-count">${this.cartCount}</span>)</span>
+                <span class="cart-count-badge">${this.cartCount}</span>
+                <span class="hide-mobile">Carrinho</span>
               </a>
             </div>
           </div>
@@ -101,7 +102,8 @@ class HeaderComponent extends HTMLElement {
     document.addEventListener('update-cart-count', (event) => {
       if (event.detail && typeof event.detail.count === 'number') {
         this.cartCount = event.detail.count;
-        const cartCountElement = this.shadowRoot.querySelector('.cart-count');
+        const cartCountElement =
+          this.shadowRoot.querySelector('.cart-count-badge');
         if (cartCountElement) {
           cartCountElement.textContent = this.cartCount;
         }

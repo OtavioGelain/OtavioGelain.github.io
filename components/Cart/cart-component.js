@@ -4,6 +4,7 @@ class CartComponent extends HTMLElement {
     this.attachShadow({ mode: 'open' });
     this.cartItems = [];
     this.isOpen = false;
+    this.listenersSetup = false;
     this.render();
   }
 
@@ -34,7 +35,12 @@ class CartComponent extends HTMLElement {
       </div>
     `;
 
-    this.setupEventListeners();
+    if (!this.listenersSetup) {
+      this.setupEventListeners();
+      this.listenersSetup = true;
+    }
+
+    this.setupCartItemControls();
   }
 
   renderCartItems() {
@@ -74,6 +80,16 @@ class CartComponent extends HTMLElement {
   }
 
   setupEventListeners() {
+    document.addEventListener('toggle-cart', () => this.toggleCart());
+
+    document.addEventListener('add-to-cart', (event) => {
+      if (event.detail) {
+        this.addToCart(event.detail);
+      }
+    });
+  }
+
+  setupCartItemControls() {
     const closeBtn = this.shadowRoot.querySelector('.close-cart');
     if (closeBtn) {
       closeBtn.addEventListener('click', () => this.closeCart());
@@ -89,18 +105,6 @@ class CartComponent extends HTMLElement {
       continueBtn.addEventListener('click', () => this.closeCart());
     }
 
-    this.setupCartItemControls();
-
-    document.addEventListener('toggle-cart', () => this.toggleCart());
-
-    document.addEventListener('add-to-cart', (event) => {
-      if (event.detail) {
-        this.addToCart(event.detail);
-      }
-    });
-  }
-
-  setupCartItemControls() {
     const increaseButtons =
       this.shadowRoot.querySelectorAll('.increase-quantity');
     increaseButtons.forEach((button) => {
@@ -168,7 +172,8 @@ class CartComponent extends HTMLElement {
       if (item.quantity <= 0) {
         this.removeItem(itemId);
       } else {
-        this.render();
+        this.updateQuantityDisplay(itemId, item.quantity);
+        this.updateTotalDisplay();
       }
 
       this.updateCartCount();
@@ -179,6 +184,20 @@ class CartComponent extends HTMLElement {
     this.cartItems = this.cartItems.filter((item) => item.id !== itemId);
     this.updateCartCount();
     this.render();
+  }
+
+  updateQuantityDisplay(itemId, quantity) {
+    const itemElement = this.shadowRoot.querySelector(`[data-id="${itemId}"] .item-quantity`);
+    if (itemElement) {
+      itemElement.textContent = quantity;
+    }
+  }
+
+  updateTotalDisplay() {
+    const totalElement = this.shadowRoot.querySelector('.cart-total span:last-child');
+    if (totalElement) {
+      totalElement.textContent = `R$ ${this.calculateTotal().toFixed(2)}`;
+    }
   }
 
   updateCartCount() {

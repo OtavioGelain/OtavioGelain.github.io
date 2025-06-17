@@ -34,7 +34,7 @@ class LoginFormComponent extends HTMLElement {
 
           <form class="auth-form" data-form-type="${formType}">
             ${this.renderFormFields(formType)}
-            <button type="submit" class="submit-btn">${this.getButtonText(formType)}</button>
+            <button-component type="submit" variant="primary" size="large">${this.getButtonText(formType)}</button-component>
           </form>
 
           ${this.renderLinks(formType)}
@@ -86,20 +86,20 @@ class LoginFormComponent extends HTMLElement {
   renderFormFields(formType) {
     if (formType === 'register') {
       return `
-        <input type="email" name="email" placeholder="E-mail" required />
-        <input type="text" name="username" placeholder="Usuário" required />
-        <input type="password" name="password" placeholder="Senha" required />
-        <input type="password" name="confirmPassword" placeholder="Confirmar senha" required />
+        <input-component type="email" name="email" placeholder="E-mail" icon="envelope" required></input-component>
+        <input-component type="text" name="username" placeholder="Usuário" icon="user" required></input-component>
+        <input-component type="password" name="password" placeholder="Senha" icon="lock" required></input-component>
+        <input-component type="password" name="confirmPassword" placeholder="Confirmar senha" icon="lock" required></input-component>
       `;
     } else if (formType === 'reset') {
       return `
-        <input type="text" name="emailOrUsername" placeholder="E-mail ou usuário" required />
-        <input type="password" name="newPassword" placeholder="Nova senha" required />
+        <input-component type="text" name="emailOrUsername" placeholder="E-mail ou usuário" icon="envelope" required></input-component>
+        <input-component type="password" name="newPassword" placeholder="Nova senha" icon="lock" required></input-component>
       `;
     } else {
       return `
-        <input type="text" name="emailOrUsername" placeholder="E-mail ou usuário" required />
-        <input type="password" name="password" placeholder="Senha" required />
+        <input-component type="text" name="emailOrUsername" placeholder="E-mail ou usuário" icon="envelope" required></input-component>
+        <input-component type="password" name="password" placeholder="Senha" icon="lock" required></input-component>
       `;
     }
   }
@@ -141,6 +141,7 @@ class LoginFormComponent extends HTMLElement {
   setupEventListeners() {
     const form = this.shadowRoot.querySelector('.auth-form');
     const socialButtons = this.shadowRoot.querySelectorAll('.social-btn');
+    const submitButton = this.shadowRoot.querySelector('button-component[type="submit"]');
 
     if (form) {
       form.addEventListener('submit', (e) => {
@@ -149,17 +150,43 @@ class LoginFormComponent extends HTMLElement {
       });
     }
 
+    // Listener para o botão de submit customizado
+    if (submitButton) {
+      submitButton.addEventListener('button-click', (e) => {
+        e.preventDefault();
+        const fakeEvent = { target: form };
+        this.handleFormSubmit(fakeEvent);
+      });
+    }
+
     socialButtons.forEach(button => {
       button.addEventListener('click', (e) => {
         this.handleSocialLogin(e);
       });
     });
+
+    // Listener para validação em tempo real dos inputs
+    const inputComponents = this.shadowRoot.querySelectorAll('input-component');
+    inputComponents.forEach(input => {
+      input.addEventListener('input-blur', () => {
+        input.validate();
+      });
+    });
   }
 
   handleFormSubmit(e) {
-    const formData = new FormData(e.target);
     const formType = e.target.getAttribute('data-form-type');
-    const data = Object.fromEntries(formData);
+    const inputComponents = this.shadowRoot.querySelectorAll('input-component');
+    const data = {};
+
+    // Coletar dados dos input components
+    inputComponents.forEach(input => {
+      const name = input.getAttribute('name');
+      const value = input.getValue();
+      if (name) {
+        data[name] = value;
+      }
+    });
 
     // Validação básica
     if (!this.validateForm(data, formType)) {

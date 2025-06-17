@@ -24,7 +24,7 @@ class HeaderComponent extends HTMLElement {
               <a href="#">Seja bem-vindo(a)!</a>
             </div>
             <div class="user-actions">
-              <a href="/pages/auth/login.html" class="account">
+              <a href="/pages/account/my-account.html" class="account">
                 <i class="fas fa-user"></i>
                 <span class="hide-mobile">Minha conta</span>
               </a>

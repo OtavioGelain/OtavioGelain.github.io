@@ -46,14 +46,18 @@ class ProductComponent extends HTMLElement {
         ${badge ? `<div class="product-badge">${badge}</div>` : ''}
         
         <div class="product-image">
-          <img src="${image}" alt="${name}" loading="lazy">
+          <a href="/pages/product/product-detail.html?id=${id}" class="product-link">
+            <img src="${image}" alt="${name}" loading="lazy">
+          </a>
           <button class="product-favorite" data-favorite="false">
             <i class="far fa-heart"></i>
           </button>
         </div>
         
         <div class="product-info">
-          <h3 class="product-title">${name}</h3>
+          <h3 class="product-title">
+            <a href="/pages/product/product-detail.html?id=${id}" class="product-title-link">${name}</a>
+          </h3>
           
           <div class="product-price">
             ${oldPrice ? `<span class="price-old">R$ ${oldPrice.toFixed(2).replace('.', ',')}</span>` : ''}

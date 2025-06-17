@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minha Conta | EDUCA-STORE</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="/styles/styles.css" />
+  <script src="/components/Button/button-component.js"></script>
+  <script src="/components/Input/input-component.js"></script>
+  <script src="/components/Badge/badge-component.js"></script>
+  <script src="/components/AccountSettings/account-settings-component.js"></script>
+</head>
+
+<body>
+  <main>
+    <account-settings-component user-name="José Silva"></account-settings-component>
+  </main>
+
+  <script>
+    // Escutar eventos do componente
+    document.addEventListener('account-updated', (event) => {
+      console.log('Dados da conta atualizados:', event.detail);
+      // Aqui você pode enviar os dados para o servidor
+    });
+
+    document.addEventListener('password-changed', (event) => {
+      console.log('Senha alterada:', event.detail);
+      // Aqui você pode processar a mudança de senha
+    });
+
+    document.addEventListener('user-logout', () => {
+      console.log('Usuário saiu da conta');
+      // Limpar dados de sessão local se necessário
+      localStorage.clear();
+    });
+
+    // Simular dados salvos no localStorage
+    const userData = localStorage.getItem('userData');
+    if (userData) {
+      const accountComponent = document.querySelector('account-settings-component');
+      const parsedData = JSON.parse(userData);
+
+      // Atualizar atributos do componente se necessário
+      if (parsedData.firstName) {
+        accountComponent.setAttribute('user-name', parsedData.firstName);
+      }
+    }
+  </script>
+</body>
+
+</html>

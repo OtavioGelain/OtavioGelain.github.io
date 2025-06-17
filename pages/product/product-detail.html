@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caderno Universitário | EDUCA-STORE</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="/styles/styles.css" />
+  <script src="/components/Header/header-component.js"></script>
+  <script src="/components/Footer/footer-component.js"></script>
+  <script src="/components/Button/button-component.js"></script>
+  <script src="/components/Rating/rating-component.js"></script>
+  <script src="/components/Badge/badge-component.js"></script>
+  <script src="/components/ProductPage/product-page-component.js"></script>
+</head>
+
+<body>
+  <header-component></header-component>
+
+  <main>
+    <product-page-component product-id="1" product-name="Caderno Universitário 96 Folhas" product-price="25.90"
+      product-images="/images/caderno1.jpg,/images/caderno2.jpg,/images/caderno3.jpg"
+      product-description="Caderno universitário com 96 folhas pautadas, capa dura resistente, ideal para anotações e estudos. Papel de alta qualidade que não borra com caneta esferográfica. Formato padrão universitário com margens definidas para melhor organização das anotações.">
+    </product-page-component>
+  </main>
+
+  <footer-component></footer-component>
+
+  <script>
+    // Escutar eventos do componente
+    document.addEventListener('add-to-cart', (event) => {
+      console.log('Produto adicionado ao carrinho:', event.detail);
+      // Integrar com o componente de carrinho existente
+      document.dispatchEvent(new CustomEvent('update-cart-count', {
+        detail: { count: getCartItemCount() + 1 }
+      }));
+    });
+
+    document.addEventListener('buy-now', (event) => {
+      console.log('Compra imediata:', event.detail);
+      // Redirecionar para checkout ou processar compra
+    });
+
+    document.addEventListener('toggle-favorite', (event) => {
+      console.log('Favorito alterado:', event.detail);
+      // Salvar favoritos no localStorage ou servidor
+      saveFavorite(event.detail.productId, event.detail.isFavorited);
+    });
+
+    // Funções auxiliares
+    function getCartItemCount() {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      return cart.reduce((total, item) => total + item.quantity, 0);
+    }
+
+    function saveFavorite(productId, isFavorited) {
+      const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+
+      if (isFavorited) {
+        if (!favorites.includes(productId)) {
+          favorites.push(productId);
+        }
+      } else {
+        const index = favorites.indexOf(productId);
+        if (index > -1) {
+          favorites.splice(index, 1);
+        }
+      }
+
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+    }
+
+    // Carregar dados do produto dinamicamente se necessário
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    if (productId) {
+      // Aqui você pode carregar dados do produto do servidor
+      fetchProductData(productId);
+    }
+
+    async function fetchProductData(id) {
+      try {
+        // Simular carregamento de dados
+        const productData = {
+          id: id,
+          name: 'Caderno Universitário Personalizado',
+          price: 29.90,
+          images: ['/images/caderno1.jpg', '/images/caderno2.jpg'],
+          description: 'Produto carregado dinamicamente'
+        };
+
+        const productComponent = document.querySelector('product-page-component');
+        if (productComponent) {
+          productComponent.setAttribute('product-id', productData.id);
+          productComponent.setAttribute('product-name', productData.name);
+          productComponent.setAttribute('product-price', productData.price.toString());
+          productComponent.setAttribute('product-images', productData.images.join(','));
+          productComponent.setAttribute('product-description', productData.description);
+        }
+      } catch (error) {
+        console.error('Erro ao carregar dados do produto:', error);
+      }
+    }
+  </script>
+</body>
+
+</html>

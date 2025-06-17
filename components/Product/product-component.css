@@ -91,6 +91,22 @@
   -webkit-box-orient: vertical;
 }
 
+.product-link,
+.product-title-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.product-title-link:hover {
+  color: #ff6500;
+}
+
+.product-link:hover img {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
 .product-price {
   margin-bottom: 15px;
   flex: 1;

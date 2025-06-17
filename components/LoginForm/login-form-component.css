@@ -102,6 +102,17 @@ hr {
   box-shadow: 0 0 0 2px rgba(255, 101, 0, 0.2);
 }
 
+button-component.submit-btn {
+  width: 100%;
+  margin-top: 15px;
+}
+
+input-component {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+/* Fallback para botões nativos ainda existentes */
 .submit-btn {
   width: 100%;
   padding: 12px;

@@ -1,0 +1,85 @@
+:host {
+  display: inline-block;
+}
+
+.rating-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.stars.interactive {
+  cursor: pointer;
+}
+
+.stars i {
+  color: #ffd700;
+  transition: all 0.2s ease;
+}
+
+.stars.interactive i:hover {
+  transform: scale(1.1);
+}
+
+.stars i.highlight {
+  color: #ffaa00;
+  transform: scale(1.05);
+}
+
+.rating-text {
+  color: #718096;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Size variants */
+.rating-container.small .stars i {
+  font-size: 12px;
+}
+
+.rating-container.small .rating-text {
+  font-size: 12px;
+}
+
+.rating-container.medium .stars i {
+  font-size: 16px;
+}
+
+.rating-container.medium .rating-text {
+  font-size: 14px;
+}
+
+.rating-container.large .stars i {
+  font-size: 20px;
+}
+
+.rating-container.large .rating-text {
+  font-size: 16px;
+}
+
+.rating-container.extra-large .stars i {
+  font-size: 24px;
+}
+
+.rating-container.extra-large .rating-text {
+  font-size: 18px;
+}
+
+/* Readonly state */
+.stars.readonly {
+  pointer-events: none;
+}
+
+/* Hover effects for interactive mode */
+.stars.interactive i {
+  cursor: pointer;
+}
+
+.stars.interactive i:hover {
+  color: #ffaa00;
+} 

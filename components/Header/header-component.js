@@ -9,7 +9,7 @@ class HeaderComponent extends HTMLElement {
   render() {
     this.shadowRoot.innerHTML = `
       <style>
-        @import url('components/Header/header-component.css');
+        @import url('/components/Header/header-component.css');
       </style>
       <header>
         <div class="top-bar">

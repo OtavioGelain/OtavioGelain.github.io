@@ -8,7 +8,7 @@ class MainNavComponent extends HTMLElement {
   render() {
     this.shadowRoot.innerHTML = `
       <style>
-        @import url('components/MainNav/main-nav-component.css');
+        @import url('/components/MainNav/main-nav-component.css');
       </style>
       <nav class="main-nav">
         <div class="container">
@@ -18,6 +18,7 @@ class MainNavComponent extends HTMLElement {
           </label>
           <ul class="nav-links">
             <li><a href="#">CATEGORIAS</a></li>
+            <li><a href="pages/products-view/products-view.html">PRODUTOS</a></li>
             <li><a href="#">PROMOÇÕES</a></li>
             <li><a href="#">NOVIDADES</a></li>
             <li><a href="#">CONTATO</a></li>

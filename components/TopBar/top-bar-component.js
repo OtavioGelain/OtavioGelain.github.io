@@ -8,7 +8,7 @@ class TopBarComponent extends HTMLElement {
   render() {
     this.shadowRoot.innerHTML = `
       <style>
-        @import url('components/TopBar/top-bar-component.css');
+        @import url('/components/TopBar/top-bar-component.css');
       </style>
       <div class="top-bar">
         <div class="container">

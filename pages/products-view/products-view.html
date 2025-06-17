@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDUCA-STORE | Produtos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="products-view.css" />
+    <link rel="stylesheet" href="../../styles/styles.css" />
+
+    <!-- Component Scripts -->
+    <script src="../../components/Button/button-component.js"></script>
+    <script src="../../components/Header/header-component.js"></script>
+    <script src="../../components/Footer/footer-component.js"></script>
+    <script src="../../components/TopBar/top-bar-component.js"></script>
+    <script src="../../components/SearchBar/search-bar-component.js"></script>
+    <script src="../../components/MainNav/main-nav-component.js"></script>
+    <script src="../../components/Cart/cart-component.js"></script>
+    <script src="../../components/Product/product-component.js"></script>
+    <script src="../../components/Breadcrumb/breadcrumb-component.js"></script>
+    <script src="../../components/ProductGrid/product-grid-component.js"></script>
+</head>
+
+<body>
+    <header-component></header-component>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- Navigation breadcrumb -->
+            <div style="margin-bottom: 10px;">
+                <a href="../../index.html" style="color: #ff6500; text-decoration: none; font-size: 14px;">
+                    <i class="fas fa-arrow-left"></i> Voltar para Início
+                </a>
+            </div>
+
+            <product-grid-component></product-grid-component>
+        </div>
+    </main>
+
+    <footer-component></footer-component>
+    <cart-component></cart-component>
+</body>
+
+</html>

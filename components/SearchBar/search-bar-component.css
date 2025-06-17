@@ -66,3 +66,12 @@ a {
   transform: translateY(-50%);
   color: #999;
 }
+
+.search-icon {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.search-icon:hover {
+  color: #ff7826;
+}

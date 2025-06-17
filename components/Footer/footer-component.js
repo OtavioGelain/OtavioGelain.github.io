@@ -8,7 +8,7 @@ class FooterComponent extends HTMLElement {
   render() {
     this.shadowRoot.innerHTML = `
       <style>
-        @import url('components/Footer/footer-component.css');
+        @import url('/components/Footer/footer-component.css');
       </style>
       <footer>
         <div class="footer-content">

@@ -41,7 +41,7 @@ class ProductListComponent extends HTMLElement {
   render() {
     this.shadowRoot.innerHTML = `
       <style>
-        @import url('components/ProductList/product-list-component.css');
+        @import url('/components/ProductList/product-list-component.css');
       </style>
       <section class="product-list-section">
         <div class="container">

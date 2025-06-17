@@ -30,7 +30,7 @@ class ButtonComponent extends HTMLElement {
 
     this.shadowRoot.innerHTML = `
       <style>
-        @import url('components/Button/button-component.css');
+        @import url('/components/Button/button-component.css');
       </style>
       <button 
         class="btn btn-${variant} btn-${size}" 

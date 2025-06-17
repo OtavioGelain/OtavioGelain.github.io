@@ -11,7 +11,7 @@ class CartComponent extends HTMLElement {
   render() {
     this.shadowRoot.innerHTML = `
       <style>
-        @import url('components/Cart/cart-component.css');
+        @import url('/components/Cart/cart-component.css');
       </style>
       <div class="cart-overlay ${this.isOpen ? 'active' : ''}"></div>
       <div class="cart-sidebar ${this.isOpen ? 'open' : ''}">

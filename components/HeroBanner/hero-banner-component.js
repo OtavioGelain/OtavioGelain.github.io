@@ -8,7 +8,7 @@ class HeroBannerComponent extends HTMLElement {
   render() {
     this.shadowRoot.innerHTML = `
       <style>
-        @import url('components/HeroBanner/hero-banner-component.css');
+        @import url('/components/HeroBanner/hero-banner-component.css');
       </style>
       <section class="hero-banner">
         <div class="container">

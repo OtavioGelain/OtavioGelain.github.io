@@ -24,7 +24,7 @@ class HeaderComponent extends HTMLElement {
               <a href="#">Seja bem-vindo(a)!</a>
             </div>
             <div class="user-actions">
-              <a href="#" class="account">
+              <a href="/pages/auth/login.html" class="account">
                 <i class="fas fa-user"></i>
                 <span class="hide-mobile">Minha conta</span>
               </a>
@@ -39,7 +39,7 @@ class HeaderComponent extends HTMLElement {
 
         <div class="search-bar">
           <div class="container">
-            <a href="#" class="logo">EDUCA-STORE</a>
+            <a href="/index.html" class="logo">EDUCA-STORE</a>
             <div class="search-container">
               <input type="search" placeholder="O que você está procurando?" />
               <i class="fas fa-search"></i>

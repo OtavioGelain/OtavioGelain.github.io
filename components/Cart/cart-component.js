@@ -17,9 +17,7 @@ class CartComponent extends HTMLElement {
       <div class="cart-sidebar ${this.isOpen ? 'open' : ''}">
         <div class="cart-header">
           <h2>Seu Carrinho</h2>
-          <button class="close-cart">
-            <i class="fas fa-times"></i>
-          </button>
+          <button-component variant="ghost" class="close-cart">X</button-component>
         </div>
         <div class="cart-items">
           ${this.renderCartItems()}
@@ -29,8 +27,10 @@ class CartComponent extends HTMLElement {
             <span>Total:</span>
             <span>R$ ${this.calculateTotal().toFixed(2)}</span>
           </div>
-          <button class="checkout-btn">Finalizar Compra</button>
-          <button class="continue-shopping-btn">Continuar Comprando</button>
+          <div class="cart-footer-buttons">
+            <button-component variant="success" icon="credit-card" class="checkout-btn">Finalizar Compra</button-component>
+            <button-component variant="outline" class="continue-shopping-btn">Continuar Comprando</button-component>
+          </div>
         </div>
       </div>
     `;
@@ -59,14 +59,12 @@ class CartComponent extends HTMLElement {
           <h3>${item.name}</h3>
           <p class="item-price">R$ ${item.price.toFixed(2)}</p>
           <div class="quantity-control">
-            <button class="decrease-quantity">-</button>
+            <button-component variant="outline" size="small" class="decrease-quantity">-</button-component>
             <span class="item-quantity">${item.quantity}</span>
-            <button class="increase-quantity">+</button>
+            <button-component variant="outline" size="small" class="increase-quantity">+</button-component>
           </div>
         </div>
-        <button class="remove-item">
-          <i class="fas fa-trash"></i>
-        </button>
+        <button-component variant="danger" size="small" class="remove-item">X</button-component>
       </div>
     `
       )
@@ -92,7 +90,7 @@ class CartComponent extends HTMLElement {
   setupCartItemControls() {
     const closeBtn = this.shadowRoot.querySelector('.close-cart');
     if (closeBtn) {
-      closeBtn.addEventListener('click', () => this.closeCart());
+      closeBtn.addEventListener('button-click', () => this.closeCart());
     }
 
     const overlay = this.shadowRoot.querySelector('.cart-overlay');
@@ -102,13 +100,20 @@ class CartComponent extends HTMLElement {
 
     const continueBtn = this.shadowRoot.querySelector('.continue-shopping-btn');
     if (continueBtn) {
-      continueBtn.addEventListener('click', () => this.closeCart());
+      continueBtn.addEventListener('button-click', () => this.closeCart());
+    }
+
+    const checkoutBtn = this.shadowRoot.querySelector('.checkout-btn');
+    if (checkoutBtn) {
+      checkoutBtn.addEventListener('button-click', () => {
+        alert('Funcionalidade de checkout será implementada em breve!');
+      });
     }
 
     const increaseButtons =
       this.shadowRoot.querySelectorAll('.increase-quantity');
     increaseButtons.forEach((button) => {
-      button.addEventListener('click', (e) => {
+      button.addEventListener('button-click', (e) => {
         const itemId = e.target.closest('.cart-item').dataset.id;
         this.updateItemQuantity(itemId, 1);
       });
@@ -117,7 +122,7 @@ class CartComponent extends HTMLElement {
     const decreaseButtons =
       this.shadowRoot.querySelectorAll('.decrease-quantity');
     decreaseButtons.forEach((button) => {
-      button.addEventListener('click', (e) => {
+      button.addEventListener('button-click', (e) => {
         const itemId = e.target.closest('.cart-item').dataset.id;
         this.updateItemQuantity(itemId, -1);
       });
@@ -125,7 +130,7 @@ class CartComponent extends HTMLElement {
 
     const removeButtons = this.shadowRoot.querySelectorAll('.remove-item');
     removeButtons.forEach((button) => {
-      button.addEventListener('click', (e) => {
+      button.addEventListener('button-click', (e) => {
         const itemId = e.target.closest('.cart-item').dataset.id;
         this.removeItem(itemId);
       });

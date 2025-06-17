@@ -36,10 +36,9 @@ class ProductComponent extends HTMLElement {
           <h3 class="product-name">${name}</h3>
           <p class="product-description">${description}</p>
           <div class="product-price">R$ ${price.toFixed(2)}</div>
-          <button class="add-to-cart-btn">
-            <i class="fas fa-shopping-cart"></i>
+          <button-component variant="primary" icon="shopping-cart" class="add-to-cart-btn">
             Adicionar ao Carrinho
-          </button>
+          </button-component>
         </div>
       </div>
     `;
@@ -50,7 +49,7 @@ class ProductComponent extends HTMLElement {
   setupEventListeners() {
     const addToCartBtn = this.shadowRoot.querySelector('.add-to-cart-btn');
     if (addToCartBtn) {
-      addToCartBtn.addEventListener('click', () => {
+      addToCartBtn.addEventListener('button-click', () => {
         const product = {
           id: this.getAttribute('id'),
           name: this.getAttribute('name'),

@@ -103,13 +103,6 @@ class CartComponent extends HTMLElement {
       continueBtn.addEventListener('button-click', () => this.closeCart());
     }
 
-    const checkoutBtn = this.shadowRoot.querySelector('.checkout-btn');
-    if (checkoutBtn) {
-      checkoutBtn.addEventListener('button-click', () => {
-        alert('Funcionalidade de checkout será implementada em breve!');
-      });
-    }
-
     const increaseButtons =
       this.shadowRoot.querySelectorAll('.increase-quantity');
     increaseButtons.forEach((button) => {

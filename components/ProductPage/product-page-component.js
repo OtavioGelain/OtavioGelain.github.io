@@ -137,16 +137,6 @@ class ProductPageComponent extends HTMLElement {
                 <i class="fas fa-bolt"></i>
                 Comprar Agora
               </button>
-              <button class="btn-secondary add-to-cart" id="addToCart">
-                <i class="fas fa-shopping-cart"></i>
-                Adicionar ao Carrinho
-              </button>
-              <button class="btn-icon favorite" id="favorite">
-                <i class="far fa-heart"></i>
-              </button>
-              <button class="btn-icon share" id="share">
-                <i class="fas fa-share-alt"></i>
-              </button>
             </div>
 
             <div class="product-description">

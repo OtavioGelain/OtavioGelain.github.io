@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pagamento | Educa-Store</title>
+  <link rel="stylesheet" href="payment.css" />
+</head>
+<body>
+  <header class="topo">
+    <div class="barra-topo">
+      <p>Envio grátis para compras acima de R$200,00</p>
+      <div>
+        <a href="#">Minha conta</a>
+        <a href="#">Carrinho</a>
+      </div>
+    </div>
+    <div class="logo">
+      <h1><span class="black">EDUCA</span><span class="orange">-STORE</span></h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Finalizar Pagamento</h2>
+    
+    <form class="formulario-pagamento">
+      <fieldset>
+        <legend>Informações Pessoais</legend>
+        <input type="text" placeholder="Nome completo" required>
+        <input type="email" placeholder="E-mail" required>
+        <input type="text" placeholder="CPF" required>
+        <input type="tel" placeholder="Telefone" required>
+      </fieldset>
+
+      <fieldset>
+        <legend>Endereço de Entrega</legend>
+        <input type="text" placeholder="CEP" required>
+        <input type="text" placeholder="Rua" required>
+
+        <div class="form-row">
+          <input type="text" class="half" placeholder="Número" required>
+          <input type="text" class="half" placeholder="Complemento">
+        </div>
+
+        <div class="form-row">
+          <input type="text" class="half" placeholder="Cidade" required>
+          <input type="text" class="half" placeholder="Estado" required>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pagamento</legend>
+        <select required>
+          <option value="">Selecione a forma de pagamento</option>
+          <option value="credito">Cartão de Crédito</option>
+          <option value="boleto">Boleto</option>
+          <option value="pix">PIX</option>
+        </select>
+
+        <input type="text" placeholder="Número do cartão (se aplicável)">
+
+        <div class="form-row">
+          <input type="text" class="half" placeholder="Validade">
+          <input type="text" class="half" placeholder="CVV">
+        </div>
+      </fieldset>
+
+      <button type="submit">Finalizar Compra</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Educa-Store. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>

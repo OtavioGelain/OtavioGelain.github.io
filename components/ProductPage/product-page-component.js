@@ -370,9 +370,8 @@ class ProductPageComponent extends HTMLElement {
 
     this.showMessage('Redirecionando para o checkout...', 'info');
 
-    // Simular redirecionamento
     setTimeout(() => {
-      window.location.href = '/pages/checkout/checkout.html';
+      window.location.href = '/pages/payment/payment.html';
     }, 1000);
   }
 

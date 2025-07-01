@@ -28,7 +28,7 @@ class CartComponent extends HTMLElement {
             <span>R$ ${this.calculateTotal().toFixed(2)}</span>
           </div>
           <div class="cart-footer-buttons">
-            <button-component variant="success" icon="credit-card" class="checkout-btn">Finalizar Compra</button-component>
+            <a href = "/pages/payment/payment.html"><button-component variant="success" icon="credit-card" class="checkout-btn">Finalizar Compra</button-component></a>
             <button-component variant="outline" class="continue-shopping-btn">Continuar Comprando</button-component>
           </div>
         </div>
@@ -101,13 +101,6 @@ class CartComponent extends HTMLElement {
     const continueBtn = this.shadowRoot.querySelector('.continue-shopping-btn');
     if (continueBtn) {
       continueBtn.addEventListener('button-click', () => this.closeCart());
-    }
-
-    const checkoutBtn = this.shadowRoot.querySelector('.checkout-btn');
-    if (checkoutBtn) {
-      checkoutBtn.addEventListener('button-click', () => {
-        alert('Funcionalidade de checkout será implementada em breve!');
-      });
     }
 
     const increaseButtons =

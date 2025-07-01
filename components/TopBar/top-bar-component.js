@@ -13,7 +13,6 @@ class TopBarComponent extends HTMLElement {
       <div class="top-bar">
         <div class="container">
           <div class="logo-small">
-            <img src="https://via.placeholder.com/32" alt="Logo" />
             <span class="hide-mobile"
               >Envio grátis para compras acima de R$200,00</span
             >

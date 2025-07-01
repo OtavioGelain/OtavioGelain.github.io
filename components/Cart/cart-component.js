@@ -28,7 +28,7 @@ class CartComponent extends HTMLElement {
             <span>R$ ${this.calculateTotal().toFixed(2)}</span>
           </div>
           <div class="cart-footer-buttons">
-            <a href = "pages/payment/payment.html"><button-component variant="success" icon="credit-card" class="checkout-btn">Finalizar Compra</button-component></a>
+            <a href = "/pages/payment/payment.html"><button-component variant="success" icon="credit-card" class="checkout-btn">Finalizar Compra</button-component></a>
             <button-component variant="outline" class="continue-shopping-btn">Continuar Comprando</button-component>
           </div>
         </div>

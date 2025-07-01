@@ -33,9 +33,8 @@ class ProductPageComponent extends HTMLElement {
       id: this.getAttribute('product-id') || '1',
       name: this.getAttribute('product-name') || 'Caderno Universitário 96 Folhas',
       price: parseFloat(this.getAttribute('product-price') || '25.90'),
-      images: this.getAttribute('product-images') ?
-        this.getAttribute('product-images').split(',') :
-        ['/images/caderno1.jpg', '/images/caderno2.jpg', '/images/caderno3.jpg'],
+      images:
+        ['https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png?v=1530129081'],
       description: this.getAttribute('product-description') ||
         'Caderno universitário com 96 folhas pautadas, capa dura resistente, ideal para anotações e estudos. Papel de alta qualidade que não borra com caneta esferográfica.',
       category: 'Cadernos',

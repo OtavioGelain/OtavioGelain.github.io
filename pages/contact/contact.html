@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EDUCA-STORE | Materiais Escolares</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="../../styles/styles.css" />
+   <link rel="stylesheet" href="../../styles/contact.css" />
+  <script src="/components/Button/button-component.js"></script>
+  <script src="/components/Header/header-component.js"></script>
+  <script src="/components/Footer/footer-component.js"></script>
+  <script src="/components/TopBar/top-bar-component.js"></script>
+  <script src="/components/SearchBar/search-bar-component.js"></script>
+  <script src="/components/MainNav/main-nav-component.js"></script>
+
+</head>
+
+<body>
+
+    <header-component></header-component>
+
+<main class="contact-content">
+        <div class="container">
+            <div class="contact-grid">
+          
+                <div class="contact-form-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Envie sua Mensagem</h2>
+                            <p class="card-subtitle">Preencha o formulário abaixo e entraremos em contato em breve</p>
+                        </div>
+                        <div class="card-content">
+                            <form id="contactForm" class="contact-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="nome">Nome Completo *</label>
+                                        <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+                                        <span class="error-message" id="nome-error"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">E-mail *</label>
+                                        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                                        <span class="error-message" id="email-error"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="telefone">Telefone</label>
+                                        <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="assunto">Assunto *</label>
+                                        <input type="text" id="assunto" name="assunto" placeholder="Assunto da mensagem" required>
+                                        <span class="error-message" id="assunto-error"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="mensagem">Mensagem *</label>
+                                    <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem aqui..." required></textarea>
+                                    <span class="error-message" id="mensagem-error"></span>
+                                </div>
+
+                                <button type="submit" class="submit-btn">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Enviar Mensagem
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            
+                <div class="contact-info-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Informações de Contato</h2>
+                        </div>
+                        <div class="card-content">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h3>Endereço</h3>
+                                    <p>
+                                        Rua das Flores, 123<br>
+                                        Centro - São Paulo, SP<br>
+                                        CEP: 01234-567
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h3>Telefones</h3>
+                                    <p>
+                                        (11) 3456-7890<br>
+                                        (11) 99999-9999
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h3>E-mail</h3>
+                                    <p>
+                                        contato@educastore.com.br<br>
+                                        vendas@educastore.com.br
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h3>Horário de Funcionamento</h3>
+                                    <p>
+                                        Segunda a Sexta: 8h às 18h<br>
+                                        Sábado: 8h às 14h<br>
+                                        Domingo: Fechado
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Perguntas Frequentes</h2>
+                        </div>
+                        <div class="card-content">
+                            <div class="faq-item">
+                                <h4>Qual o prazo de entrega?</h4>
+                                <p>O prazo varia de 3 a 7 dias úteis, dependendo da sua localização.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Vocês fazem entrega em todo o Brasil?</h4>
+                                <p>Sim, entregamos em todo território nacional.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>Como posso acompanhar meu pedido?</h4>
+                                <p>Você receberá um código de rastreamento por e-mail após a postagem.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <footer-component></footer-component>
+</body>
+
+</html>

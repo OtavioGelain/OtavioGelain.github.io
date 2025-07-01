@@ -179,13 +179,6 @@ class ProductPageComponent extends HTMLElement {
             `).join('')}
           </div>
         </section>
-
-        <section class="related-products">
-          <h3>Produtos Relacionados</h3>
-          <div class="related-grid">
-            ${this.generateRelatedProducts()}
-          </div>
-        </section>
       </div>
     `;
 

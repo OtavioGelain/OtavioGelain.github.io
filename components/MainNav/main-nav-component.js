@@ -21,7 +21,7 @@ class MainNavComponent extends HTMLElement {
             <li><a href="pages/products-view/products-view.html">PRODUTOS</a></li>
             <li><a href="#">PROMOÇÕES</a></li>
             <li><a href="#">NOVIDADES</a></li>
-            <li><a href="#">CONTATO</a></li>
+            <li><a href="/pages/contact/contact.html">CONTATO</a></li>
             <li><a href="#">INSTITUCIONAL</a></li>
             <li><a href="#">BLOG</a></li>
           </ul>
